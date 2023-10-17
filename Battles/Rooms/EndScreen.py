@@ -42,15 +42,15 @@ class EndScreen(Level):
         # Append the result to the file 'results.txt'
         log_file = open("results.txt", "a")
         if Globals.winner == Globals.RED_FLAG_WINNER:
-            log_file.write("Red" + " ")
+            log_file.write(f"{Globals.red_team_name}" + " ")
         else:
-            log_file.write("Blue" + " ")
+            log_file.write(f"{Globals.blue_team_name}" + " ")
 
         self.running = False
         self.quitting = True
         Globals.exiting = True
 
-        log_file.write("Red {} ".format(Globals.red_enemy_side_time))
-        log_file.write("Blue {}\n".format(Globals.blue_enemy_side_time))
+        log_file.write(f"{Globals.red_team_name} {Globals.red_enemy_side_time} ")
+        log_file.write(f"{Globals.blue_team_name} {Globals.blue_enemy_side_time} \n")
 
         log_file.close()
